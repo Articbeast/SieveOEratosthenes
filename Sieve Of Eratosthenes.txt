@@ -1,0 +1,23 @@
+Console.WriteLine("Enter Max Number To Be Primed Up To")
+        Dim MaxNum As Integer = Console.ReadLine
+        Dim BoolArray(MaxNum) As Boolean
+        Dim C As Integer = 1
+        For i = 0 To BoolArray.Length - 1
+            BoolArray(i) = True
+        Next
+        For i = 2 To Math.Sqrt(MaxNum)
+            If BoolArray(i - 2) = True Then
+                For j = Math.Pow(i, 2) To MaxNum Step (C * i)
+                    C = C + 1
+                    BoolArray(j) = False
+                Next
+                C = 1   'the reason why it wasnt working
+            End If
+        Next
+        For i = 0 To BoolArray.Length - 1
+            If BoolArray(i) = True Then
+                Console.WriteLine(BoolArray(i))
+                Console.WriteLine(i)
+            End If
+        Next
+        Console.ReadLine()
