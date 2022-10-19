@@ -1,10 +1,12 @@
-Console.WriteLine("Enter Max Number To Be Primed Up To")
-        Dim MaxNum As Integer = Console.ReadLine
+Dim count As Double
+        Console.WriteLine("Enter Max Number To Be Primed Up To")
+        Dim MaxNum As Double = Console.ReadLine
         Dim BoolArray(MaxNum) As Boolean
-        Dim C As Integer = 1
+        Dim C As Double = 1
         For i = 0 To BoolArray.Length - 1
             BoolArray(i) = True
         Next
+        Dim j As Double
         For i = 2 To Math.Sqrt(MaxNum)
             If BoolArray(i - 2) = True Then
                 For j = Math.Pow(i, 2) To MaxNum Step (C * i)
@@ -14,10 +16,13 @@ Console.WriteLine("Enter Max Number To Be Primed Up To")
                 C = 1   'the reason why it wasnt working
             End If
         Next
-        For i = 0 To BoolArray.Length - 1
+        For i = 2 To BoolArray.Length - 1
             If BoolArray(i) = True Then
-                Console.WriteLine(BoolArray(i))
+                count = count + 1
+
+                'Console.WriteLine(BoolArray(i))
                 Console.WriteLine(i)
             End If
         Next
+        Console.WriteLine("There are " & count & " many primes")
         Console.ReadLine()
